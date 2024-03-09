@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane onKeyPressed="#onKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zssql.controller.BlobValueEditController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="2.0" left="3.0" right="3.0" top="5.0" />
+         </padding>
+         <children>
+            <HBox fx:id="topHBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="594.0">
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="blobValueEdit" prefHeight="162.0" prefWidth="590.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </TextArea>
+            <WebView fx:id="codeView" prefHeight="141.0" prefWidth="594.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </WebView>
+            <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="594.0" spacing="15.0">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="saveBtn" defaultButton="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="确定" />
+                  <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="取消" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

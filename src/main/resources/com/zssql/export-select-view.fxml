@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyPressed="#onKeyPressed" prefHeight="405.0" prefWidth="357.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zssql.controller.ExportSelectViewController">
+   <children>
+      <VBox layoutY="-18.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <Label text="请选择导出数据的格式">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="312.0" spacing="25.0">
+               <children>
+                  <RadioButton fx:id="excelRadioBtn" mnemonicParsing="false" selected="true" text="Excel">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="exportType" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="csvRadioBtn" mnemonicParsing="false" text="CSV" toggleGroup="$exportType" />
+                  <RadioButton fx:id="htmlRadioBtn" mnemonicParsing="false" text="HTML" toggleGroup="$exportType" />
+                  <RadioButton fx:id="sqlRadioBtn" mnemonicParsing="false" text="SQL" toggleGroup="$exportType" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <Label text="请选择要导出的字段">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="fieldListView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Separator>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="309.0" spacing="15.0">
+               <children>
+                  <Button fx:id="exportBtn" defaultButton="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" text="导出" />
+                  <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" text="取消" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

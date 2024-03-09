@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="300.0" minWidth="400.0" prefHeight="526.0" prefWidth="949.0" spacing="1.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zssql.HelloController">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="文件">
+               <items>
+                  <MenuItem fx:id="newConnectPageMenu" accelerator="Ctrl+N" mnemonicParsing="false" onAction="#onNewDatabaseConnect" text="新建连接..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="newSqlPageMenu" accelerator="Ctrl+T" mnemonicParsing="false" onAction="#onNewSqlPage" text="新建查询编辑器" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="openSQLMenu" accelerator="Ctrl+O" mnemonicParsing="false" onAction="#onOpenSQL" text="打开SQL" />
+                  <MenuItem fx:id="saveSQLMenu" accelerator="Ctrl+S" mnemonicParsing="false" onAction="#onSaveSQL" text="保存SQL" />
+                  <MenuItem fx:id="saveSQLAsMenu" mnemonicParsing="false" onAction="#onSaveSQLAs" text="SQL另存为..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="exitMenu" accelerator="Alt+F4" mnemonicParsing="false" onAction="#onClose" text="退出" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="编辑">
+               <items>
+                  <MenuItem fx:id="undoMenu" accelerator="Ctrl+Z" mnemonicParsing="false" onAction="#onUndo" text="撤销" />
+                  <MenuItem fx:id="redoMenu" accelerator="Ctrl+Y" mnemonicParsing="false" onAction="#onRedo" text="恢复" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="cutMenu" mnemonicParsing="false" onAction="#onCut" text="剪切" />
+                  <MenuItem fx:id="copyMenu" mnemonicParsing="false" onAction="#onCopy" text="复制" />
+                  <MenuItem fx:id="pasteMenu" mnemonicParsing="false" onAction="#onPaste" text="粘贴" />
+                  <MenuItem fx:id="selectAllMenu" mnemonicParsing="false" onAction="#onSelectAll" text="选择全部" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="formatSQLMenu" accelerator="F12" mnemonicParsing="false" onAction="#onFormat" text="格式化选中SQL" />
+                  <MenuItem fx:id="formatAllSQLMenu" accelerator="Ctrl+F12" mnemonicParsing="false" onAction="#onFormatAll" text="格式化所有SQL" />
+                   <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem fx:id="findMenu" accelerator="Ctrl+F" mnemonicParsing="false" onAction="#onFindCode" text="查找" />
+                   <MenuItem fx:id="replaceMenu" accelerator="Ctrl+R" mnemonicParsing="false" onAction="#onReplaceCode" text="替换" />
+                   <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem fx:id="sqlUpperMenu" accelerator="Ctrl+Shift+U" mnemonicParsing="false" onAction="#onSelectCodeUpper" text="选中: 大写" />
+                   <MenuItem fx:id="sqlLowerMenu" accelerator="Ctrl+Shift+L" mnemonicParsing="false" onAction="#onSelectCodeLower" text="选中: 小写" />
+               </items>
+            </Menu>
+             <Menu mnemonicParsing="false" text="工具">
+                 <items>
+                     <MenuItem fx:id="executeSqlMenu" accelerator="F9" mnemonicParsing="false" onAction="#onExecuteSQL" text="执行SQL" />
+                     <MenuItem fx:id="executeAllSqlMenu" accelerator="Ctrl+F9" mnemonicParsing="false" onAction="#onExecuteAllSQL" text="执行所有SQL" />
+                     <SeparatorMenuItem mnemonicParsing="false" />
+                     <MenuItem fx:id="configMenu" accelerator="Ctrl+Shift+P" mnemonicParsing="false" onAction="#onConfig" text="选项…" />
+                 </items>
+             </Menu>
+            <Menu mnemonicParsing="false" text="帮助">
+               <items>
+                  <MenuItem fx:id="abountMenu" mnemonicParsing="false" onAction="#onAbout" text="关于..." />
+               </items>
+            </Menu>
+         </menus>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </MenuBar>
+      <ToolBar fx:id="toolbar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="949.0" />
+      <AnchorPane fx:id="mainPanel" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox layoutX="14.0" layoutY="-11.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <!--<ToolBar fx:id="toolBar" prefHeight="31.0" prefWidth="793.0" />-->
+                  <TabPane fx:id="mainTabPanel" prefHeight="329.0" prefWidth="947.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </VBox.margin>
+                  </TabPane>
+                  <VBox fx:id="restoryHBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ProgressBar fx:id="restoreProgressBar" prefHeight="28.0" prefWidth="477.0" progress="0.0" />
+                        <Label fx:id="restoreTipLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="829.0" text="" textFill="#0840e8">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="787.0" spacing="3.0">
+                     <VBox.margin>
+                        <Insets bottom="1.0" left="5.0" right="1.0" top="1.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="tipLabel" prefHeight="15.0" prefWidth="363.0" text="就绪" />
+                        <Separator prefHeight="5.0" prefWidth="93.0" visible="false" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="timeLabel" prefHeight="15.0" prefWidth="110.0" text="耗时: 0.01ms" />
+                        <Label fx:id="recordLabel" prefHeight="15.0" prefWidth="100.0" text="记录: 1000" />
+                        <Separator prefHeight="5.0" prefWidth="38.0" visible="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
